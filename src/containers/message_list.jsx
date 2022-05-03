@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setMessageList } from '../actions';
+
 
 import Message from '../components/message';
 import SearchBar from '../components/search_bar';
 
+
 class MessageList extends Component {
-  // componentWillMount() {
-  //   this.props.setMessageList();
-  // }
+  componentWillMount() {
+    this.props.setMessageList();
+  }
 
   render () {
+    const { messageList } = this.props.messageList;
     return (
       <div>
-        {this.props.messages.messageList.map((messageInfo) => {
+        {messageList.map((messageInfo) => {
           return (
-            <Message message={messageInfo} key={messageInfo.created_at}/>
-          )
+            <Message message={messageInfo} key={messageInfo.created_at} />
+          );
         })}
         <SearchBar />
       </div>
@@ -25,15 +30,15 @@ class MessageList extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state
+    messageList: state
   };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators (
-//     { setMessageList : setMessageList },
-//     dispatch
-//   )
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators (
+    { setMessageList : setMessageList },
+    dispatch
+  );
+}
 
-export default connect(mapStateToProps, null)(MessageList);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);

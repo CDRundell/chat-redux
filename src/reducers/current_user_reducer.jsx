@@ -1,15 +1,15 @@
-const SET_CURRENT_USER = 'SET_CURRENT_USER';
+// const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
-const currentUserReducer = (state, action) => {
-  if (state === undefined) {
-    return [];
-  }
+// const currentUserReducer = (state, action) => {
+//   if (state === undefined) {
+//     return [];
+//   }
 
-  if (action.type = SET_CURRENT_USER) {
-    return action.payload
-  } {
-    return state;
-  }
-};
+//   if (action.type = SET_CURRENT_USER) {
+//     return action.payload
+//   } {
+//     return state;
+//   }
+// };
 
-export default currentUserReducer;
+// export default currentUserReducer;
