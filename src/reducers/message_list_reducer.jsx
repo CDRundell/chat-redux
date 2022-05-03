@@ -6,9 +6,10 @@ const messageListReducer = (state, action) => {
   }
 
   if (action.type = SET_MESSAGE_LIST) {
-    return action.payload
+    // return action.payload
+    return state
   } {
-    return state;
+    return state
   }
 };
 

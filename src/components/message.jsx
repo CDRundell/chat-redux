@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
 class Message extends Component {
-  render () {
+  render (props) {
+    let {author, content, created_at} = this.props.message;
+
     return (
-      <h1>HELLO WORLD</h1>
+      <div>
+        <div style={{display:"flex"}}>
+          <p>{author}, Posted at {created_at}</p>
+        </div>
+        <p>{content}</p>
+      </div>
     );
   }
 }

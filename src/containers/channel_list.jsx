@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import Message from '../components/message';
 
 class ChannelList extends Component {
   render () {

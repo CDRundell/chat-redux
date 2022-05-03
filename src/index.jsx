@@ -8,14 +8,35 @@ import reduxPromise from 'redux-promise';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
+import messageListReducer from './reducers/message_list_reducer';
+import channelListReducer from './reducers/channel_list_reducer';
+import currentUserReducer from './reducers/current_user_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
 
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  messageList: messageListReducer,
+  channelList: channelListReducer,
+  currentUser: currentUserReducer,
+  selectedChannel: selectedChannelReducer
 });
 
+const initialMessages = [
+  {
+    "author": "anonymous92",
+    "content": "Hello world!",
+    "created_at": "2017-09-26T23:03:16.365Z"
+  },
+  {
+    "author": "anonymous77",
+    "content": "My name is anonymous77",
+    "created_at": "2017-09-26T23:03:21.194Z"
+  }
+];
+
+
 const initialState = {
-  messageList: [],
+  messageList: initialMessages,
   channelList: ['general', 'react', 'paris'],
   currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
   selectedChannel: "general",
@@ -25,7 +46,7 @@ const middlewares = applyMiddleware(reduxPromise);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, { messageList: initialMessages }, middlewares)}>
     <App />
   </Provider>,
   document.getElementById('root')
