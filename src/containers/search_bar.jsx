@@ -8,7 +8,7 @@ class SearchBar extends Component {
   constructor (props) {
     super(props);
     this.state = { value: "" };
-    this.onKeyUp = this.onKeyUp.bind(this);
+    // this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   onKeyUp = (event) => {
@@ -18,6 +18,7 @@ class SearchBar extends Component {
       //   () => this.props.createMessage(this.state.value)
       // );
       this.props.createMessage(event.target.value);
+      event.target.value = "";
     }
   }
 
