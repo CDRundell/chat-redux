@@ -5,7 +5,7 @@ import { setMessageList } from '../actions';
 
 
 import Message from '../components/message';
-import SearchBar from '../components/search_bar';
+import SearchBar from '../containers/search_bar';
 
 
 class MessageList extends Component {

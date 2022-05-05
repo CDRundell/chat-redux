@@ -38,7 +38,8 @@ const initialMessages = [
 const initialState = {
   messageList: initialMessages,
   channelList: ['general', 'react', 'paris'],
-  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  // currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  //  || prompt("What is your username?")
   selectedChannel: "general",
 };
 
@@ -51,3 +52,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+export default initialState.currentUser;
